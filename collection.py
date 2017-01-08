@@ -14,8 +14,9 @@ class Index:
 
     def GET(self, value):
         ip = web.ctx.ip
-        db.insert('COLLECTION', IPADDRESS=ip, ID=datetime.datetime.utcnow())
-        return "IP: ", ip
+        refer = web.ctx.env.get('HTTP_REFERER', 'http://google.com')
+        db.insert('COLLECTION', IPADDRESS=ip, ID=datetime.datetime.utcnow(), REFERER=refer)
+        return "OK"
 
 class Query:
     def __init__(self):
