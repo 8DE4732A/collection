@@ -1,0 +1,19 @@
+$def with (stories)
+<p>sum: $len(stories)</p>
+<table border="1">
+  <thead>
+    <tr>
+      <th>time</th>
+      <th>ip</th>
+      <th>refer</th>
+    </tr>
+  </thead>
+  <tbody>
+  $for record in stories:
+    <tr>
+      <td>$record.ID</td>
+      <td>$record.IPADDRESS</td>
+      <td>$record.REFERER</td>
+    </tr>
+  </tbody>
+</table>

@@ -23,7 +23,9 @@ class Query:
         pass
 
     def GET(self):
-        return list(db.select("COLLECTION"))
+        stories =  list(db.select("COLLECTION"))
+        render = web.template.frender('templates/query.html')
+        return render(stories)
 
 
 if __name__ == "__main__":
